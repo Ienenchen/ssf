@@ -1,0 +1,58 @@
+[2022-04-11 14:27:08,734] {taskinstance.py:1043} INFO - Dependencies all met for <TaskInstance: openDataETL.transform manual__2022-04-11T14:21:53.941443+00:00 [queued]>
+[2022-04-11 14:27:08,900] {taskinstance.py:1043} INFO - Dependencies all met for <TaskInstance: openDataETL.transform manual__2022-04-11T14:21:53.941443+00:00 [queued]>
+[2022-04-11 14:27:08,903] {taskinstance.py:1249} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-11 14:27:08,906] {taskinstance.py:1250} INFO - Starting attempt 2 of 3
+[2022-04-11 14:27:08,908] {taskinstance.py:1251} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-11 14:27:09,021] {taskinstance.py:1270} INFO - Executing <Task(PythonOperator): transform> on 2022-04-11 14:21:53.941443+00:00
+[2022-04-11 14:27:09,039] {standard_task_runner.py:52} INFO - Started process 6019 to run task
+[2022-04-11 14:27:09,073] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'openDataETL', 'transform', 'manual__2022-04-11T14:21:53.941443+00:00', '--job-id', '65', '--raw', '--subdir', 'DAGS_FOLDER/try.py', '--cfg-path', '/tmp/tmpsn19mbf9', '--error-file', '/tmp/tmpo3gvlkhg']
+[2022-04-11 14:27:09,080] {standard_task_runner.py:80} INFO - Job 65: Subtask transform
+[2022-04-11 14:27:09,389] {logging_mixin.py:109} INFO - Running <TaskInstance: openDataETL.transform manual__2022-04-11T14:21:53.941443+00:00 [running]> on host 474cd328f92b
+[2022-04-11 14:27:09,608] {taskinstance.py:1448} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=openDataETL
+AIRFLOW_CTX_TASK_ID=transform
+AIRFLOW_CTX_EXECUTION_DATE=2022-04-11T14:21:53.941443+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-04-11T14:21:53.941443+00:00
+[2022-04-11 14:27:28,192] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/operators/python.py:188: DtypeWarning: Columns (11,15,32,38,40,41) have mixed types.Specify dtype option on import or set low_memory=False.
+  return self.python_callable(*self.op_args, **self.op_kwargs)
+
+[2022-04-11 14:27:33,551] {taskinstance.py:1774} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 188, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/try.py", line 49, in transform
+    '/opt/airflow/logs/df_all.parquet.gzip', compression='gzip')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 207, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 2685, in to_parquet
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parquet.py", line 423, in to_parquet
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parquet.py", line 173, in write
+    table = self.api.Table.from_pandas(df, **from_pandas_kwargs)
+  File "pyarrow/table.pxi", line 1650, in pyarrow.lib.Table.from_pandas
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyarrow/pandas_compat.py", line 607, in dataframe_to_arrays
+    arrays[i] = maybe_fut.result()
+  File "/usr/local/lib/python3.7/concurrent/futures/_base.py", line 428, in result
+    return self.__get_result()
+  File "/usr/local/lib/python3.7/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.7/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyarrow/pandas_compat.py", line 581, in convert_column
+    raise e
+  File "/home/airflow/.local/lib/python3.7/site-packages/pyarrow/pandas_compat.py", line 575, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+  File "pyarrow/array.pxi", line 311, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 83, in pyarrow.lib._ndarray_to_array
+  File "pyarrow/error.pxi", line 122, in pyarrow.lib.check_status
+pyarrow.lib.ArrowTypeError: ("Expected bytes, got a 'int' object", 'Conversion failed for column total floor number with type object')
+[2022-04-11 14:27:33,665] {taskinstance.py:1288} INFO - Marking task as UP_FOR_RETRY. dag_id=openDataETL, task_id=transform, execution_date=20220411T142153, start_date=20220411T142708, end_date=20220411T142733
+[2022-04-11 14:27:33,784] {standard_task_runner.py:98} ERROR - Failed to execute job 65 for task transform (("Expected bytes, got a 'int' object", 'Conversion failed for column total floor number with type object'); 6019)
+[2022-04-11 14:27:33,951] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-04-11 14:27:34,143] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

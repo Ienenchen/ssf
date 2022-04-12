@@ -1,0 +1,2 @@
+[2022-04-11 14:23:12,070] {taskinstance.py:1037} INFO - Dependencies not met for <TaskInstance: openDataETL.transform manual__2022-04-11T14:12:30.549249+00:00 [up_for_retry]>, dependency 'Not In Retry Period' FAILED: Task is not ready for retry yet but will be retried automatically. Current date is 2022-04-11T14:23:12.050382+00:00 and task will be retried at 2022-04-11T14:28:06.209599+00:00.
+[2022-04-11 14:23:12,263] {local_task_job.py:99} INFO - Task is not able to be run

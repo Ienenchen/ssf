@@ -1,0 +1,23 @@
+[2022-04-11 12:52:25,096] {taskinstance.py:1043} INFO - Dependencies all met for <TaskInstance: openDataETL.load manual__2022-04-11T12:52:06.780068+00:00 [queued]>
+[2022-04-11 12:52:25,203] {taskinstance.py:1043} INFO - Dependencies all met for <TaskInstance: openDataETL.load manual__2022-04-11T12:52:06.780068+00:00 [queued]>
+[2022-04-11 12:52:25,205] {taskinstance.py:1249} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-11 12:52:25,214] {taskinstance.py:1250} INFO - Starting attempt 1 of 3
+[2022-04-11 12:52:25,217] {taskinstance.py:1251} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-11 12:52:25,338] {taskinstance.py:1270} INFO - Executing <Task(PythonOperator): load> on 2022-04-11 12:52:06.780068+00:00
+[2022-04-11 12:52:25,351] {standard_task_runner.py:52} INFO - Started process 915 to run task
+[2022-04-11 12:52:25,366] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'openDataETL', 'load', 'manual__2022-04-11T12:52:06.780068+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/try.py', '--cfg-path', '/tmp/tmpvp4vc3vn', '--error-file', '/tmp/tmpzuun4n6j']
+[2022-04-11 12:52:25,370] {standard_task_runner.py:80} INFO - Job 17: Subtask load
+[2022-04-11 12:52:25,737] {logging_mixin.py:109} INFO - Running <TaskInstance: openDataETL.load manual__2022-04-11T12:52:06.780068+00:00 [running]> on host 474cd328f92b
+[2022-04-11 12:52:26,047] {taskinstance.py:1448} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=openDataETL
+AIRFLOW_CTX_TASK_ID=load
+AIRFLOW_CTX_EXECUTION_DATE=2022-04-11T12:52:06.780068+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-04-11T12:52:06.780068+00:00
+[2022-04-11 12:52:26,082] {logging_mixin.py:109} INFO - {'total_order_value': 1236.7}
+[2022-04-11 12:52:26,084] {python.py:175} INFO - Done. Returned value was: None
+[2022-04-11 12:52:26,156] {taskinstance.py:1288} INFO - Marking task as SUCCESS. dag_id=openDataETL, task_id=load, execution_date=20220411T125206, start_date=20220411T125225, end_date=20220411T125226
+[2022-04-11 12:52:26,350] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-04-11 12:52:26,659] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
